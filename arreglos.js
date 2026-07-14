@@ -1,18 +1,27 @@
+let numEada =[];
+
 function agregarEdad(){
-    let numeroCaja = recuperarInt("edad");
-    mostrarResultados(numeroCaja);
+    let numeroCaja
+    numeroCaja = recuperarInt("edad");
+    numEada.push(numeroCaja);
+    pintarArregloIzquierda(numeroCaja);
+   
+  }
 
-}
 
-function mostrarResultados(numeroCaja){
-    let cmpTabla = document.getElementById("tablaIzquierda");
-    let agregarNumero = "<tr><td>"+numeroCaja+"</td>";
+function pintarArregloIzquierda(numeroCaja){
+    let cmpTabla;
+    let agregarNumero ="";
+    cmpTabla = document.getElementById("tablaIzquierda");
+    for(let i = 0; i < numEada.length; i ++){
+     let addEdad = numEada[i];
+       agregarNumero += "<tr><td>"+(addEdad)+"</td>";
        agregarNumero += "<td><button class='btn-eliminar'>Eliminar</button></td>";
-       agregarNumero += "<td><button class='btn-mover'>➜</button></tr>"
-       cmpTabla.innerHTML= agregarNumero;
-
-    
+       agregarNumero += "<td><button class='btn-mover'>➜</button></tr></tr>"    
+   } 
+   cmpTabla.innerHTML= agregarNumero;
 }
+
 function recuperaraTexto(idComponente){
     let componente;
     let valorIngresado;
@@ -27,7 +36,3 @@ function recuperarInt(idComponente){
         return valorEntero;
 }
 
-function agregarNumero(nota,lista) {
-    lista.push(nota);
-    
-}
